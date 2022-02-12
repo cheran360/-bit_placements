@@ -1,0 +1,60 @@
+{% extends 'placements/main.html' %} {% block content %}
+<!-- <div class="container mt-3">
+    <div class="shadow-lg p-4 mb-4">
+  
+  <a class="btn btn-secondary mb-3" href="{% url 'editStudentDashBoard' %}">Edit</a>
+  <</div>
+  </div> -->
+<div class="container mt-3">
+  <div class="shadow-lg p-4 mb-4">
+    <a class="btn btn-secondary mb-3" href="{% url 'editStudentDashBoard' %}"
+      >Edit</a
+    >
+    <div style="text-align: left">
+      <p>USN: {{studentInfo.usn}}</p>
+      <p>Username: {{studentInfo.user.username}}</p>
+      <p>FirstName: {{studentInfo.first_name}}</p>
+      <p>LastName: {{studentInfo.last_name}}</p>
+      {% if not studentInfo.phone %}
+      <p>phone: Need to Enter</p>
+      {% else %}
+      <p>phone : {{studentInfo.phone}}</p>
+      {% endif %}
+      <p>branch: {{studentInfo.branch}}</p>
+      <p>tenthgrade: {{studentInfo.tenthgrade}}</p>
+      <p>twelvegrade: {{studentInfo.twelvegrade}}</p>
+      <p>Diploma: {{studentInfo.Diploma}}</p>
+      <p>ug: {{studentInfo.ug}}</p>
+      <p>pg: {{studentInfo.pg}}</p>
+      <p>Extra-curricular: {{studentInfo.extracurricular}}</p>
+      <p>company: {{studentInfo.company.name}}</p>
+      <p>
+        profiles :
+        {% for profile in studentInfo.profiles %}
+        <a href="{{profile}}" target="_blank"
+          >{{profile}}</a
+        > 
+        {% endfor %}
+      </p>
+      <p>
+        certificates :
+        {% for certificate in studentInfo.certificates %}
+        <a href="{{certificate}}" target="_blank"
+          >{{certificate}}</a
+        >
+        {% endfor %}
+      </p>
+      <p>projects: {{studentInfo.projects}}</p>
+      <p>
+        project-Links :
+        {% for projectlink in studentInfo.projectslinks %}
+        <a href="{{projectlink}}" target="_blank"
+          >{{projectlink}}</a
+        >
+        {% endfor %}
+      </p>
+      <p>internships: {{studentInfo.internships.company}}</p>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,93 @@
+  {% extends 'placements/main.html' %}
+
+  {% load static %}
+  {% block content %}
+    <br>
+    <div class="container mt-3">
+      <div class="shadow-lg p-4 mb-4">
+        <form action="" method="POST">
+          {% csrf_token %}
+          
+          <label for="username" class="col-sm-2 control-label">username</label>
+          <input type="text" class="form-control col-sm-8 col-md-4" value="{{studentInfo.user.username}}"" id="username" name="username" >
+
+          <label for="phone" class="col-sm-2 control-label">phone</label>
+          <input type="text" value="{{studentInfo.phone}}" class="form-control col-sm-8 col-md-4" id="phone" name="phone">
+
+          <label for="fname" class="col-sm-2 control-label">First Name</label>
+          <input type="text" value="{{studentInfo.first_name}}" class="form-control col-sm-8 col-md-4" id="fname" name="first_name">
+          
+          <label for="lname" class="col-sm-2 control-label">Last Name</label>
+          <input type="text" value="{{studentInfo.last_name}}" class="form-control col-sm-8 col-md-4" id="lname" name="last_name">
+
+          <label for="resume" class="col-sm-2 control-label">Resume</label>
+          <input type="url" value="{{studentInfo.resume}}" class="form-control col-sm-8 col-md-4" id="resume" name="resume">
+          
+          <label class="col-sm-2 control-label">Profiles</label>
+          <div id = "student_profiles">
+            {% for stuprofile in studentInfo.profiles %}
+            <input type="url" value = "{{stuprofile}}" class="form-control col-sm-8 col-md-4" name="stu_profiles">
+            {% endfor %}
+          </div>
+          <a id="add_field" class="btn btn-primary">Add More</a>
+          <a id="remove_field" class="btn btn-danger">Remove</a>
+
+          <br>
+          
+          <label for="tenthgrade" class="col-sm-2 control-label">Tenth grade</label>
+          <input type="text" value="{{studentInfo.tenthgrade}}" class="form-control col-sm-8 col-md-4" id="tenthgrade" name="tenthgrade">
+
+          <label for="twelvegrade" class="col-sm-2 control-label">twelfth grade</label>
+          <input type="text" value="{{studentInfo.twelvegrade}}" class="form-control col-sm-8 col-md-4" id="twelvegrade" name="twelvegrade">
+          
+          <label for="Diploma" class="col-sm-2 control-label">Diploma grade</label>
+          <input type="text" value="{{studentInfo.Diploma}}" class="form-control col-sm-8 col-md-4" id="Diploma" name="Diploma">
+
+          <label for="ug" class="col-sm-2 control-label">ug grade</label>
+          <input type="text" value="{{studentInfo.ug}}" class="form-control col-sm-8 col-md-4" id="ug" name="ug">
+
+          <label for="pg" class="col-sm-2 control-label">pg grade</label>
+          <input type="text" value="{{studentInfo.pg}}" class="form-control col-sm-8 col-md-4" id="pg" name="pg">
+          
+          <label for="extracurricular" class="col-sm-2 control-label">extracurricular</label>
+          <textarea id="extracurricular" value="{{studentInfo.extracurricular}}" name="extracurricular" class="form-control col-sm-8 col-md-4" rows="4" cols="50"></textarea>
+
+          <label for="clubs" class="col-sm-2 control-label">clubs</label>
+          <textarea id="clubs" value="{{studentInfo.clubs}}" name="clubs" class="form-control col-sm-8 col-md-4" rows="4" cols="50"></textarea>
+
+          <label class="col-sm-2 control-label">certificates links</label>
+          <div id = "student_certificates">
+            {% for stucertificate in studentInfo.certificates %}
+            <input type="url" value = "{{stucertificate}}" class="form-control col-sm-8 col-md-4" name="stu_certificates">
+            {% endfor %}
+          </div>
+          <a id="add_field_certificate" class="btn btn-primary">Add More</a>
+          <a id="remove_field_certificate" class="btn btn-danger">Remove</a>
+
+          <br>
+
+          <label for="projects" class="col-sm-2 control-label">projects</label>
+          <textarea id="projects" value="{{studentInfo.projects}}" name="projects" class="form-control col-sm-8 col-md-4" rows="4" cols="50"></textarea>
+
+          <label class="col-sm-2 control-label">Projects links</label>
+          <div id = "student_projectslinks">
+            {% for stuprojectslinks in studentInfo.projectslinks %}
+            <input type="url" value = "{{stuprojectslinks}}" class="form-control col-sm-8 col-md-4" name="stu_projectslinks">
+            {% endfor %}
+          </div>
+          <a id="add_field_project" class="btn btn-primary">Add More</a>
+          <a id="remove_field_project" class="btn btn-danger">Remove</a>
+
+          <br>
+
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+  {% endblock %}
+    
+  {% block js_block %}
+  <script type="text/javascript " src="{% static 'js/script.js' %}"></script>
+  {% endblock %}
+
+ 

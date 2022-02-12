@@ -1,0 +1,28 @@
+{% extends 'placements/main.html' %} {% block content %}
+
+<div class="container mt-3">
+  <div class="shadow-lg p-4 mb-4">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Usn</th>
+          <th scope="col">Branch</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+        <tr>
+          <th scope="row"><a class="btn btn-secondary" href="{% url 'editStudentDashBoard' %}" role="button">edit</a></th>
+          <td>{{student.first_name}}</td>
+          <td>{{student.usn}}</td>
+          <td>{{student.branch}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock content %}
